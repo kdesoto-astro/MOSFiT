@@ -500,13 +500,13 @@ class Fitter(object):
                         pool.close()
 
                     # Remove global model variable and garbage collect.
-                    try:
-                        model
-                    except NameError:
-                        pass
-                    else:
-                        del (model)
-                    del (self._model)
+                    #try:
+                    #    model
+                    #except NameError:
+                    #    pass
+                    #else:
+                    #    del (model)
+                    #del (self._model)
                     gc.collect()
 
         return (entries, ps, lnprobs)
@@ -962,7 +962,7 @@ class Fitter(object):
                 dentry.sanitize()
                 odentry = {ce[0]: uentry._ordered(dentry)}
                 dpayload = entabbed_json_dumps(odentry, separators=(',', ':'))
-                
+
                 text = prt.message('ul_devent', [ce[0]], prt=False)
                 ul_devent = prt.prompt(text, kind='bool', message=False)
                 if ul_devent:
